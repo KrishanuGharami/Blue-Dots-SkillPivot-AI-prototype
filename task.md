@@ -1,0 +1,19 @@
+- [x] Install required packages (`firebase`, `@google/generative-ai`, `lucide-react`)
+- [x] Create core logic layer (Firebase, Gemini API, and State Machine helper files)
+  - [x] `lib/firebase.ts`
+  - [x] `lib/gemini.ts`
+  - [x] `lib/stateMachine.ts`
+- [x] Create custom state and audio hook `hooks/useVoiceAgent.ts`
+- [x] Implement UI Components
+  - [x] Integrate component in `app/page.tsx` (Voice recording wave, speech output, active transcript)
+  - [x] `components/LiveStateTracker.tsx` (JSON state view with glow alerts)
+  - [x] `components/ComplianceMonitor.tsx` (audits length and blacklisted terms)
+  - [x] `components/ProfileSelector.tsx` (preset buttons for quick tests)
+  - [x] `components/HistoryList.tsx` (loads previous sessions)
+- [x] Implement Application Pages & Routing
+  - [x] `app/layout.tsx` (Fonts and metadata styling)
+  - [x] `app/page.tsx` (Landing page)
+  - [x] `app/dashboard/page.tsx` (Main interactive interface layout)
+  - [x] `app/login/page.tsx` (Firebase Auth screen)
+  - [x] `app/api/voice/route.ts` (API route connecting to Gemini LLM)
+- [x] Verify execution and build the application

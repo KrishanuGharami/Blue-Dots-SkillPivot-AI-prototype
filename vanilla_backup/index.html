@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillPivot AI - Discovery Guide Prototype</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon">SP</div>
+            <span class="logo-text">SkillPivot AI</span>
+            <span class="badge">Discovery Simulator</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <label class="sound-toggle">
+                <span>UI Sounds</span>
+                <div class="switch">
+                    <input type="checkbox" id="sound-switch-input" checked>
+                    <span class="slider"></span>
+                </div>
+            </label>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <!-- Left Pane: Chat Interface Simulator -->
+        <section class="panel chat-panel" aria-label="SkillPivot AI Chat Sandbox">
+            <div class="panel-header">
+                <h2 class="panel-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    Interactive Discovery Sandbox
+                </h2>
+            </div>
+            
+            <div class="chat-history" id="chat-history">
+                <!-- Chat messages will be dynamically rendered here -->
+            </div>
+            
+            <div class="chat-input-container">
+                <input type="text" id="chat-input-field" class="chat-input" placeholder="Type your response here..." aria-label="Type message">
+                <button class="chat-send-btn" onclick="submitUserMessage()" aria-label="Send message">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- Right Pane: Real-time Monitor & Controls -->
+        <aside class="sidebar-panel">
+            <!-- State Tracker -->
+            <div class="sub-panel">
+                <div class="sub-panel-header">
+                    <h3 class="sub-panel-title">Real-Time State Tracker</h3>
+                    <span class="badge" style="font-size: 0.65rem; background: rgba(0, 242, 254, 0.05);">Structured Output</span>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.25rem;">
+                    This JSON object represents the structured state captured dynamically from the visitor during conversation.
+                </p>
+                <div class="json-container" id="json-state-tracker">
+                    <!-- Dynamic state rendering -->
+                </div>
+            </div>
+
+            <!-- Pre-defined Presets Panel -->
+            <div class="sub-panel">
+                <div class="sub-panel-header">
+                    <h3 class="sub-panel-title">Simulation Control Panel</h3>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary);">
+                    Use these presets to instantly simulate full conversation paths or reset the chat engine.
+                </p>
+                <div class="preset-grid">
+                    <button class="preset-btn" onclick="loadPreset('student')" aria-label="Load Student Preset">
+                        <span class="preset-title">Student Profile</span>
+                        <span class="preset-desc">3rd year looking for a practical robotics lab setup.</span>
+                    </button>
+                    <button class="preset-btn" onclick="loadPreset('college')" aria-label="Load College Representative Preset">
+                        <span class="preset-title">College Representative</span>
+                        <span class="preset-desc">HOD targeting pilot lab setup for 500+ students.</span>
+                    </button>
+                </div>
+                <div class="control-actions">
+                    <button class="action-btn reset" onclick="resetSimulation()" aria-label="Reset simulator">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+                        Restart Simulation
+                    </button>
+                </div>
+            </div>
+
+            <!-- Rule Compliance Monitor -->
+            <div class="sub-panel">
+                <div class="sub-panel-header">
+                    <h3 class="sub-panel-title">Discovery Rules Compliance</h3>
+                </div>
+                <div class="rule-compliance-list">
+                    <div class="compliance-item" id="compliance-sentences">
+                        Sentence Count: 0/2
+                        <span class="compliance-status pass"></span>
+                    </div>
+                    <div class="compliance-item" id="compliance-forbidden">
+                        Forbidden Words: None
+                        <span class="compliance-status pass"></span>
+                    </div>
+                    <div class="compliance-item">
+                        Concise Style (Under 2 Sentences)
+                        <span class="compliance-status pass"></span>
+                    </div>
+                    <div class="compliance-item">
+                        Tone (Unbiased & Honest)
+                        <span class="compliance-status pass"></span>
+                    </div>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4;">
+                    * The system automatically scans every message against blacklisted vocabulary ("guaranteed", "100%", "best", "revolutionary") and sentence length rules.
+                </p>
+            </div>
+        </aside>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
