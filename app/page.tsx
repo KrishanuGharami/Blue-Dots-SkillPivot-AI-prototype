@@ -23,6 +23,9 @@ export default function LandingPage() {
         </div>
         <div className="hidden sm:flex items-center space-x-6 text-sm text-slate-400 font-medium">
           <a href="#features" className="hover:text-slate-100 transition-colors">Features</a>
+          <Link href="/map" className="hover:text-slate-100 transition-colors">
+            Map
+          </Link>
           <a href="#challenge" className="hover:text-slate-100 transition-colors">Challenge Info</a>
         </div>
         <Link
@@ -44,7 +47,7 @@ export default function LandingPage() {
 
         {/* Hero Title */}
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white max-w-4xl leading-[1.1] mb-6 animate-fadeInUp">
-          AI Voice Agent for <span className="bg-gradient-to-r from-cyan-400 via-teal-400 to-indigo-400 bg-clip-text text-transparent">Market Discovery</span> & Lead Capture
+          Discover Your <span className="bg-gradient-to-r from-cyan-400 via-teal-400 to-indigo-400 bg-clip-text text-transparent">Tech Journey</span> with AI
         </h1>
 
         {/* Hero Subtitle */}
